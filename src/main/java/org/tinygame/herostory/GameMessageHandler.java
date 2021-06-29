@@ -1,32 +1,60 @@
 package org.tinygame.herostory;
 
-import io.netty.buffer.ByteBuf;
+import com.google.protobuf.GeneratedMessageV3;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
-import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
+import io.netty.util.AttributeKey;
+import org.tinygame.herostory.api.GameMsgProtocol;
+import org.tinygame.herostory.cmdHandler.*;
+import org.tinygame.herostory.entity.UserManager;
 
 /**
  * 自定义消息处理器
  */
 public class GameMessageHandler extends SimpleChannelInboundHandler<Object> {
-    static private final Logger logger = LogManager.getLogger();
 
-    protected void channelRead0(ChannelHandlerContext ctx, Object msg) throws Exception {
-        logger.info("收到客户端消息：" + msg);
+    @Override
+    public void channelActive(ChannelHandlerContext ctx) {
+        BroadCaster.add(ctx.channel());
+    }
 
-        BinaryWebSocketFrame frame = (BinaryWebSocketFrame) msg;
-        ByteBuf byteBuf = frame.content();
+    @Override
+    public void handlerRemoved(ChannelHandlerContext ctx) throws Exception {
+        super.handlerRemoved(ctx);
+        BroadCaster.remove(ctx.channel());
 
-        byte[] bytes = new byte[byteBuf.readableBytes()];
-        byteBuf.readBytes(bytes);
+        Integer userId = (Integer) ctx.channel().attr(AttributeKey.valueOf("userId")).get();
+        if (null == userId)
+            return;
 
-        for (byte b : bytes) {
-            System.out.print(b);
-            System.out.print(",");
+        UserManager.removeById(userId);
+
+        GameMsgProtocol.UserQuitResult result = GameMsgProtocol.UserQuitResult.newBuilder()
+                .setQuitUserId(userId)
+                .build();
+
+        BroadCaster.broadCaste(result);
+    }
+
+    protected void channelRead0(ChannelHandlerContext ctx, Object msg) {
+        CmdHandler<?> cmdHandler = CmdHandlerFactory.create(msg.getClass());
+
+        if (null != cmdHandler) {
+            cmdHandler.handle(ctx, cast(msg));
         }
+    }
 
-        System.out.println("");
+    /**
+     * 强转
+     *
+     * @param obj
+     * @param <E>
+     * @return
+     */
+    private <E extends GeneratedMessageV3> E cast(Object obj) {
+        if (null == obj)
+            return null;
+
+        return (E) obj;
     }
 }

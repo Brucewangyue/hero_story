@@ -10,14 +10,17 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.http.HttpObjectAggregator;
 import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
+import org.tinygame.herostory.cmdHandler.CmdHandlerFactory;
 
 public class ServerMain {
     public static void main(String[] args) {
+        CmdHandlerFactory.init();
+
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();
 
         ServerBootstrap b = new ServerBootstrap();
-        b.group(bossGroup,workerGroup);
+        b.group(bossGroup, workerGroup);
         // 服务器信道的处理方式
         b.channel(NioServerSocketChannel.class);
         // 客户端信道的处理器方式
@@ -31,6 +34,8 @@ public class ServerMain {
                         // WebSocket 协议处理器, 在这里处理握手、ping、pong 等消息
                         new WebSocketServerProtocolHandler("/websocket"),
                         // 自定义消息处理器
+                        new GameMsgDecoder(),
+                        new GameMsgEncoder(),
                         new GameMessageHandler());
             }
         });
@@ -38,7 +43,7 @@ public class ServerMain {
         try {
             ChannelFuture f = b.bind(12345).sync();
 
-            if(f.isSuccess())
+            if (f.isSuccess())
                 System.out.println("服务器启动成功");
 
             f.channel().closeFuture().sync();

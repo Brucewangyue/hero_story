@@ -18,7 +18,6 @@ public class UserEntryCmdHandler implements CmdHandler<GameMsgProtocol.UserEntry
         // 登录逻辑
         int userId = cmd.getUserId();
         String heroAvatar = cmd.getHeroAvatar();
-        System.out.println("用户登录，用户：" + userId);
 
         User user = new User();
         user.setUserId(userId);

@@ -13,8 +13,9 @@ import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import org.tinygame.herostory.cmdHandler.CmdHandlerFactory;
 
 public class ServerMain {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         CmdHandlerFactory.init();
+        MessageRecognizer.init();
 
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();

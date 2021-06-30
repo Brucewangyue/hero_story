@@ -6,9 +6,12 @@ import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelOutboundHandlerAdapter;
 import io.netty.channel.ChannelPromise;
 import io.netty.handler.codec.http.websocketx.BinaryWebSocketFrame;
-import org.tinygame.herostory.api.GameMsgProtocol;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class GameMsgEncoder extends ChannelOutboundHandlerAdapter {
+    static private Logger logger = LogManager.getLogger();
+
     @Override
     public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
         if (null == msg || !(msg instanceof GeneratedMessageV3)) {
@@ -16,18 +19,14 @@ public class GameMsgEncoder extends ChannelOutboundHandlerAdapter {
             return;
         }
 
-        int msgCode = -1;
-        ByteBuf byteBuf = ctx.alloc().buffer();
-        if (msg instanceof GameMsgProtocol.UserEntryResult)
-            msgCode = GameMsgProtocol.MsgCode.USER_ENTRY_RESULT_VALUE;
-        else if (msg instanceof GameMsgProtocol.WhoElseIsHereResult)
-            msgCode = GameMsgProtocol.MsgCode.WHO_ELSE_IS_HERE_RESULT_VALUE;
-        else if (msg instanceof GameMsgProtocol.UserMoveToResult)
-            msgCode = GameMsgProtocol.MsgCode.USER_MOVE_TO_RESULT_VALUE;
-        else if (msg instanceof GameMsgProtocol.UserQuitResult)
-            msgCode = GameMsgProtocol.MsgCode.USER_QUIT_RESULT_VALUE;
+        int msgCode = MessageRecognizer.getMsgCodeByMessage(msg.getClass());
+        if (msgCode <= -1) {
+            logger.error("无法识别的消息代码：" + msgCode);
+            return;
+        }
 
         byte[] msgBody = ((GeneratedMessageV3) msg).toByteArray();
+        ByteBuf byteBuf = ctx.alloc().buffer();
         byteBuf.writeShort((short) 0);
         byteBuf.writeShort(msgCode);
         byteBuf.writeBytes(msgBody);

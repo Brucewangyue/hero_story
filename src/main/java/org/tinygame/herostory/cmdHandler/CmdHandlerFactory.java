@@ -1,13 +1,10 @@
 package org.tinygame.herostory.cmdHandler;
 
 import com.google.protobuf.GeneratedMessageV3;
-import org.tinygame.herostory.api.GameMsgProtocol;
 import org.tinygame.herostory.utils.PackageUtil;
 
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
-import java.lang.reflect.Parameter;
-import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -30,7 +27,7 @@ public final class CmdHandlerFactory {
 
         for (Class<?> clazz : classes) {
             // 抽象类判断
-            if ((clazz.getModifiers() & Modifier.ABSTRACT) != 0)
+            if ((clazz.getModifiers() & Modifier.ABSTRACT)  != 0)
                 continue;
 
             for (Method handleMethod : clazz.getDeclaredMethods()) {

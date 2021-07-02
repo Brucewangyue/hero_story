@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--    这里的配置项必须要按官方文档规定好的顺序-->
+    <settings>
+        <!--    指定日志输出类库-->
+<!--        <setting name="logImpl" value="LOG4J"/>-->
+        <!--    驼峰映射-->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--    延迟加载-->
+        <!--        <setting name="lazyLoadingEnabled" value="true"/>-->
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
+    <!--    配置了一个包的别名，通常确定一个类的时候需要使用类的全限定名称
+            这样配置后，在使用类的时候不需要写包名的部分
+    -->
+    <typeAliases>
+        <package name="org.tinygame.herostory.entity"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC">
+                <property name="" value=""/>
+            </transactionManager>
+            <dataSource type="UNPOOLED">
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://10.9.33.193:3306/test1"/>
+                <property name="username" value="root"/>
+                <property name="password" value="F@20dms2020"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--    mappers中配置了一个包含完整类路径的 ManageAdjustDao.xml，-->
+    <!--    这是一个MyBatis的SQL语句和映射配置文件，这个XML文件会在后面的章节中介绍-->
+    <mappers>
+        <!--        <mapper resource="tk/mybatis/simple/dao/ManageAdjustDao.xml"/>-->
+        <!--        <mapper resource="tk/mybatis/simple/dao/UserDao.xml"/>-->
+        <!--        <mapper resource="tk/mybatis/simple/dao/UserRoleDao.xml"/>-->
+        <!--        <mapper resource="tk/mybatis/simple/dao/RoleDao.xml"/>-->
+        <!--        <mapper resource="tk/mybatis/simple/dao/PrivilegeDao.xml"/>-->
+        <!--        <mapper resource="tk/mybatis/simple/dao/RolePrivilegeDao.xml"/>-->
+
+        <!--        因为此处所有的xml映射文件都有对应的mapper接口，所以可以通过扫描接口包批量注册-->
+        <!--        1、判断接口对应的命名空间是否已经存在，如果存在就抛出异常-->
+        <!--        2、加载接口对应的xml映射文件，将全限定名转换为路径，扫描.xml后缀的资源，如果找到就进行解析-->
+        <!--        3、处理接口中的注解方法-->
+        <package name="org.tinygame.herostory.dao"/>
+    </mappers>
+</configuration>

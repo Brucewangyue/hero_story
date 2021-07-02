@@ -16,14 +16,9 @@ public class UserEntryCmdHandler implements CmdHandler<GameMsgProtocol.UserEntry
             return;
 
         // 登录逻辑
-        int userId = cmd.getUserId();
-        String heroAvatar = cmd.getHeroAvatar();
-
-        User user = new User();
-        user.setUserId(userId);
-        user.setHeroAvatar(heroAvatar);
-        UserManager.add(user);
-        ctx.channel().attr(AttributeKey.valueOf("userId")).set(userId);
+        int userId = (Integer) ctx.channel().attr(AttributeKey.valueOf("userId")).get();
+        User user = UserManager.getById(userId);
+        String heroAvatar = user.getHeroAvatar();
 
         // 广播用户进入房间消息
         GameMsgProtocol.UserEntryResult result = GameMsgProtocol.UserEntryResult.newBuilder()

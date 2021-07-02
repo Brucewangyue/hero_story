@@ -18,7 +18,11 @@ public class MainThreadProcessor {
     /**
      * 全局单线程线程池
      */
-    static private ExecutorService es = Executors.newSingleThreadExecutor();
+    static private ExecutorService es = Executors.newSingleThreadExecutor(r->{
+        Thread newThread = new Thread(r);
+        newThread.setName("MainThreadProcessor");
+        return newThread;
+    });
     /**
      * 单例对象
      */
@@ -31,10 +35,9 @@ public class MainThreadProcessor {
     public void process(ChannelHandlerContext ctx, Object msg) {
         if (null == ctx || null == msg)
             return;
-        System.out.println("当前处理线程1：" + Thread.currentThread().getName());
 
         es.submit(() -> {
-            System.out.println("当前处理线程2：" + Thread.currentThread().getName());
+            System.out.println("当前处理线程：" + Thread.currentThread().getName());
             CmdHandler<?> cmdHandler = CmdHandlerFactory.create(msg.getClass());
 
             if (null == cmdHandler) {

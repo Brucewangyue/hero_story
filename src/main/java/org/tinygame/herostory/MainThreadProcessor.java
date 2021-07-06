@@ -10,7 +10,7 @@ import org.tinygame.herostory.cmdHandler.CmdHandlerFactory;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-public class MainThreadProcessor {
+public final class MainThreadProcessor {
     private MainThreadProcessor() {
     }
 
@@ -18,7 +18,7 @@ public class MainThreadProcessor {
     /**
      * 全局单线程线程池
      */
-    static private ExecutorService es = Executors.newSingleThreadExecutor(r->{
+    static private ExecutorService es = Executors.newSingleThreadExecutor(r -> {
         Thread newThread = new Thread(r);
         newThread.setName("MainThreadProcessor");
         return newThread;
@@ -32,6 +32,12 @@ public class MainThreadProcessor {
         return instance;
     }
 
+    /**
+     * 主线程处理消息
+     *
+     * @param ctx
+     * @param msg
+     */
     public void process(ChannelHandlerContext ctx, Object msg) {
         if (null == ctx || null == msg)
             return;
@@ -66,5 +72,15 @@ public class MainThreadProcessor {
             return null;
 
         return (E) obj;
+    }
+
+    /**
+     * 主线程处理异步结果
+     *
+     * @param runnable
+     */
+    public void process(Runnable runnable) {
+        if (null == runnable) return;
+        es.submit(runnable);
     }
 }

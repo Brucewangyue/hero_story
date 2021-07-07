@@ -18,7 +18,7 @@ public final class MainThreadProcessor {
     /**
      * 全局单线程线程池
      */
-    static private ExecutorService es = Executors.newSingleThreadExecutor(r -> {
+    private ExecutorService es = Executors.newSingleThreadExecutor(r -> {
         Thread newThread = new Thread(r);
         newThread.setName("MainThreadProcessor");
         return newThread;

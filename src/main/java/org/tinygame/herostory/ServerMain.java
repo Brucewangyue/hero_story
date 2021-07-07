@@ -12,12 +12,14 @@ import io.netty.handler.codec.http.HttpServerCodec;
 import io.netty.handler.codec.http.websocketx.WebSocketServerProtocolHandler;
 import org.tinygame.herostory.cmdHandler.CmdHandlerFactory;
 import org.tinygame.herostory.utils.DbHelper;
+import org.tinygame.herostory.utils.RedisUtil;
 
 public class ServerMain {
     public static void main(String[] args) throws Exception{
         CmdHandlerFactory.init();
         MessageRecognizer.init();
         DbHelper.init();
+        RedisUtil.init();
 
         EventLoopGroup bossGroup = new NioEventLoopGroup();
         EventLoopGroup workerGroup = new NioEventLoopGroup();

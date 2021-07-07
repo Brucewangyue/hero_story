@@ -83,6 +83,22 @@ public final class GameMsgProtocol {
      * <code>USER_LOGIN_RESULT = 14;</code>
      */
     USER_LOGIN_RESULT(14),
+    /**
+     * <code>SELECT_HERO_CMD = 15;</code>
+     */
+    SELECT_HERO_CMD(15),
+    /**
+     * <code>SELECT_HERO_RESULT = 16;</code>
+     */
+    SELECT_HERO_RESULT(16),
+    /**
+     * <code>GET_RANK_CMD = 17;</code>
+     */
+    GET_RANK_CMD(17),
+    /**
+     * <code>GET_RANK_RESULT = 18;</code>
+     */
+    GET_RANK_RESULT(18),
     UNRECOGNIZED(-1),
     ;
 
@@ -146,6 +162,22 @@ public final class GameMsgProtocol {
      * <code>USER_LOGIN_RESULT = 14;</code>
      */
     public static final int USER_LOGIN_RESULT_VALUE = 14;
+    /**
+     * <code>SELECT_HERO_CMD = 15;</code>
+     */
+    public static final int SELECT_HERO_CMD_VALUE = 15;
+    /**
+     * <code>SELECT_HERO_RESULT = 16;</code>
+     */
+    public static final int SELECT_HERO_RESULT_VALUE = 16;
+    /**
+     * <code>GET_RANK_CMD = 17;</code>
+     */
+    public static final int GET_RANK_CMD_VALUE = 17;
+    /**
+     * <code>GET_RANK_RESULT = 18;</code>
+     */
+    public static final int GET_RANK_RESULT_VALUE = 18;
 
 
     public final int getNumber() {
@@ -187,6 +219,10 @@ public final class GameMsgProtocol {
         case 12: return USER_DIE_RESULT;
         case 13: return USER_LOGIN_CMD;
         case 14: return USER_LOGIN_RESULT;
+        case 15: return SELECT_HERO_CMD;
+        case 16: return SELECT_HERO_RESULT;
+        case 17: return GET_RANK_CMD;
+        case 18: return GET_RANK_RESULT;
         default: return null;
       }
     }
@@ -11680,6 +11716,3333 @@ public final class GameMsgProtocol {
 
   }
 
+  public interface SelectHeroCmdOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:msg.SelectHeroCmd)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string heroAvatar = 1;</code>
+     * @return The heroAvatar.
+     */
+    java.lang.String getHeroAvatar();
+    /**
+     * <code>string heroAvatar = 1;</code>
+     * @return The bytes for heroAvatar.
+     */
+    com.google.protobuf.ByteString
+        getHeroAvatarBytes();
+  }
+  /**
+   * <pre>
+   * 选择英雄命令
+   * </pre>
+   *
+   * Protobuf type {@code msg.SelectHeroCmd}
+   */
+  public static final class SelectHeroCmd extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:msg.SelectHeroCmd)
+      SelectHeroCmdOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SelectHeroCmd.newBuilder() to construct.
+    private SelectHeroCmd(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SelectHeroCmd() {
+      heroAvatar_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SelectHeroCmd();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SelectHeroCmd(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              heroAvatar_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_SelectHeroCmd_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_SelectHeroCmd_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd.class, org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd.Builder.class);
+    }
+
+    public static final int HEROAVATAR_FIELD_NUMBER = 1;
+    private volatile java.lang.Object heroAvatar_;
+    /**
+     * <code>string heroAvatar = 1;</code>
+     * @return The heroAvatar.
+     */
+    @java.lang.Override
+    public java.lang.String getHeroAvatar() {
+      java.lang.Object ref = heroAvatar_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        heroAvatar_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string heroAvatar = 1;</code>
+     * @return The bytes for heroAvatar.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getHeroAvatarBytes() {
+      java.lang.Object ref = heroAvatar_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        heroAvatar_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getHeroAvatarBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, heroAvatar_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getHeroAvatarBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, heroAvatar_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd)) {
+        return super.equals(obj);
+      }
+      org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd other = (org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd) obj;
+
+      if (!getHeroAvatar()
+          .equals(other.getHeroAvatar())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + HEROAVATAR_FIELD_NUMBER;
+      hash = (53 * hash) + getHeroAvatar().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 选择英雄命令
+     * </pre>
+     *
+     * Protobuf type {@code msg.SelectHeroCmd}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:msg.SelectHeroCmd)
+        org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmdOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_SelectHeroCmd_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_SelectHeroCmd_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd.class, org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd.Builder.class);
+      }
+
+      // Construct using org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        heroAvatar_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_SelectHeroCmd_descriptor;
+      }
+
+      @java.lang.Override
+      public org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd getDefaultInstanceForType() {
+        return org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd build() {
+        org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd buildPartial() {
+        org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd result = new org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd(this);
+        result.heroAvatar_ = heroAvatar_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd) {
+          return mergeFrom((org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd other) {
+        if (other == org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd.getDefaultInstance()) return this;
+        if (!other.getHeroAvatar().isEmpty()) {
+          heroAvatar_ = other.heroAvatar_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object heroAvatar_ = "";
+      /**
+       * <code>string heroAvatar = 1;</code>
+       * @return The heroAvatar.
+       */
+      public java.lang.String getHeroAvatar() {
+        java.lang.Object ref = heroAvatar_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          heroAvatar_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string heroAvatar = 1;</code>
+       * @return The bytes for heroAvatar.
+       */
+      public com.google.protobuf.ByteString
+          getHeroAvatarBytes() {
+        java.lang.Object ref = heroAvatar_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          heroAvatar_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string heroAvatar = 1;</code>
+       * @param value The heroAvatar to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHeroAvatar(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        heroAvatar_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string heroAvatar = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHeroAvatar() {
+        
+        heroAvatar_ = getDefaultInstance().getHeroAvatar();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string heroAvatar = 1;</code>
+       * @param value The bytes for heroAvatar to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHeroAvatarBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        heroAvatar_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:msg.SelectHeroCmd)
+    }
+
+    // @@protoc_insertion_point(class_scope:msg.SelectHeroCmd)
+    private static final org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd();
+    }
+
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SelectHeroCmd>
+        PARSER = new com.google.protobuf.AbstractParser<SelectHeroCmd>() {
+      @java.lang.Override
+      public SelectHeroCmd parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SelectHeroCmd(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SelectHeroCmd> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SelectHeroCmd> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.tinygame.herostory.api.GameMsgProtocol.SelectHeroCmd getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SelectHeroResultOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:msg.SelectHeroResult)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>string heroAvatar = 1;</code>
+     * @return The heroAvatar.
+     */
+    java.lang.String getHeroAvatar();
+    /**
+     * <code>string heroAvatar = 1;</code>
+     * @return The bytes for heroAvatar.
+     */
+    com.google.protobuf.ByteString
+        getHeroAvatarBytes();
+  }
+  /**
+   * <pre>
+   * 选择英雄结果
+   * </pre>
+   *
+   * Protobuf type {@code msg.SelectHeroResult}
+   */
+  public static final class SelectHeroResult extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:msg.SelectHeroResult)
+      SelectHeroResultOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use SelectHeroResult.newBuilder() to construct.
+    private SelectHeroResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SelectHeroResult() {
+      heroAvatar_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new SelectHeroResult();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private SelectHeroResult(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              heroAvatar_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_SelectHeroResult_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_SelectHeroResult_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult.class, org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult.Builder.class);
+    }
+
+    public static final int HEROAVATAR_FIELD_NUMBER = 1;
+    private volatile java.lang.Object heroAvatar_;
+    /**
+     * <code>string heroAvatar = 1;</code>
+     * @return The heroAvatar.
+     */
+    @java.lang.Override
+    public java.lang.String getHeroAvatar() {
+      java.lang.Object ref = heroAvatar_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        heroAvatar_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string heroAvatar = 1;</code>
+     * @return The bytes for heroAvatar.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getHeroAvatarBytes() {
+      java.lang.Object ref = heroAvatar_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        heroAvatar_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getHeroAvatarBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, heroAvatar_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getHeroAvatarBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, heroAvatar_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult)) {
+        return super.equals(obj);
+      }
+      org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult other = (org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult) obj;
+
+      if (!getHeroAvatar()
+          .equals(other.getHeroAvatar())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + HEROAVATAR_FIELD_NUMBER;
+      hash = (53 * hash) + getHeroAvatar().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 选择英雄结果
+     * </pre>
+     *
+     * Protobuf type {@code msg.SelectHeroResult}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:msg.SelectHeroResult)
+        org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResultOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_SelectHeroResult_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_SelectHeroResult_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult.class, org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult.Builder.class);
+      }
+
+      // Construct using org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        heroAvatar_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_SelectHeroResult_descriptor;
+      }
+
+      @java.lang.Override
+      public org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult getDefaultInstanceForType() {
+        return org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult build() {
+        org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult buildPartial() {
+        org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult result = new org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult(this);
+        result.heroAvatar_ = heroAvatar_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult) {
+          return mergeFrom((org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult other) {
+        if (other == org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult.getDefaultInstance()) return this;
+        if (!other.getHeroAvatar().isEmpty()) {
+          heroAvatar_ = other.heroAvatar_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object heroAvatar_ = "";
+      /**
+       * <code>string heroAvatar = 1;</code>
+       * @return The heroAvatar.
+       */
+      public java.lang.String getHeroAvatar() {
+        java.lang.Object ref = heroAvatar_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          heroAvatar_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string heroAvatar = 1;</code>
+       * @return The bytes for heroAvatar.
+       */
+      public com.google.protobuf.ByteString
+          getHeroAvatarBytes() {
+        java.lang.Object ref = heroAvatar_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          heroAvatar_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string heroAvatar = 1;</code>
+       * @param value The heroAvatar to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHeroAvatar(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        heroAvatar_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string heroAvatar = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearHeroAvatar() {
+        
+        heroAvatar_ = getDefaultInstance().getHeroAvatar();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string heroAvatar = 1;</code>
+       * @param value The bytes for heroAvatar to set.
+       * @return This builder for chaining.
+       */
+      public Builder setHeroAvatarBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        heroAvatar_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:msg.SelectHeroResult)
+    }
+
+    // @@protoc_insertion_point(class_scope:msg.SelectHeroResult)
+    private static final org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult();
+    }
+
+    public static org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SelectHeroResult>
+        PARSER = new com.google.protobuf.AbstractParser<SelectHeroResult>() {
+      @java.lang.Override
+      public SelectHeroResult parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new SelectHeroResult(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SelectHeroResult> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SelectHeroResult> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.tinygame.herostory.api.GameMsgProtocol.SelectHeroResult getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetRankCmdOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:msg.GetRankCmd)
+      com.google.protobuf.MessageOrBuilder {
+  }
+  /**
+   * <pre>
+   * 获取排行榜命令
+   * </pre>
+   *
+   * Protobuf type {@code msg.GetRankCmd}
+   */
+  public static final class GetRankCmd extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:msg.GetRankCmd)
+      GetRankCmdOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetRankCmd.newBuilder() to construct.
+    private GetRankCmd(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetRankCmd() {
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetRankCmd();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetRankCmd(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_GetRankCmd_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_GetRankCmd_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd.class, org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd.Builder.class);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd)) {
+        return super.equals(obj);
+      }
+      org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd other = (org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd) obj;
+
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 获取排行榜命令
+     * </pre>
+     *
+     * Protobuf type {@code msg.GetRankCmd}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:msg.GetRankCmd)
+        org.tinygame.herostory.api.GameMsgProtocol.GetRankCmdOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_GetRankCmd_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_GetRankCmd_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd.class, org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd.Builder.class);
+      }
+
+      // Construct using org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_GetRankCmd_descriptor;
+      }
+
+      @java.lang.Override
+      public org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd getDefaultInstanceForType() {
+        return org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd build() {
+        org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd buildPartial() {
+        org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd result = new org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd(this);
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd) {
+          return mergeFrom((org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd other) {
+        if (other == org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd.getDefaultInstance()) return this;
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:msg.GetRankCmd)
+    }
+
+    // @@protoc_insertion_point(class_scope:msg.GetRankCmd)
+    private static final org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd();
+    }
+
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetRankCmd>
+        PARSER = new com.google.protobuf.AbstractParser<GetRankCmd>() {
+      @java.lang.Override
+      public GetRankCmd parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetRankCmd(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetRankCmd> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetRankCmd> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.tinygame.herostory.api.GameMsgProtocol.GetRankCmd getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface GetRankResultOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:msg.GetRankResult)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+     */
+    java.util.List<org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem> 
+        getRankItemsList();
+    /**
+     * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+     */
+    org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem getRankItems(int index);
+    /**
+     * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+     */
+    int getRankItemsCount();
+    /**
+     * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+     */
+    java.util.List<? extends org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItemOrBuilder> 
+        getRankItemsOrBuilderList();
+    /**
+     * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+     */
+    org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItemOrBuilder getRankItemsOrBuilder(
+        int index);
+  }
+  /**
+   * <pre>
+   * 获取排行榜结果
+   * </pre>
+   *
+   * Protobuf type {@code msg.GetRankResult}
+   */
+  public static final class GetRankResult extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:msg.GetRankResult)
+      GetRankResultOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use GetRankResult.newBuilder() to construct.
+    private GetRankResult(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private GetRankResult() {
+      rankItems_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new GetRankResult();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private GetRankResult(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                rankItems_ = new java.util.ArrayList<org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              rankItems_.add(
+                  input.readMessage(org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem.parser(), extensionRegistry));
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          rankItems_ = java.util.Collections.unmodifiableList(rankItems_);
+        }
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_GetRankResult_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_GetRankResult_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.class, org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.Builder.class);
+    }
+
+    public interface RankItemOrBuilder extends
+        // @@protoc_insertion_point(interface_extends:msg.GetRankResult.RankItem)
+        com.google.protobuf.MessageOrBuilder {
+
+      /**
+       * <code>uint32 rankId = 1;</code>
+       * @return The rankId.
+       */
+      int getRankId();
+
+      /**
+       * <code>uint32 userId = 2;</code>
+       * @return The userId.
+       */
+      int getUserId();
+
+      /**
+       * <code>string userName = 3;</code>
+       * @return The userName.
+       */
+      java.lang.String getUserName();
+      /**
+       * <code>string userName = 3;</code>
+       * @return The bytes for userName.
+       */
+      com.google.protobuf.ByteString
+          getUserNameBytes();
+
+      /**
+       * <code>string heroAvatar = 4;</code>
+       * @return The heroAvatar.
+       */
+      java.lang.String getHeroAvatar();
+      /**
+       * <code>string heroAvatar = 4;</code>
+       * @return The bytes for heroAvatar.
+       */
+      com.google.protobuf.ByteString
+          getHeroAvatarBytes();
+
+      /**
+       * <pre>
+       * 胜利次数
+       * </pre>
+       *
+       * <code>uint32 win = 5;</code>
+       * @return The win.
+       */
+      int getWin();
+    }
+    /**
+     * Protobuf type {@code msg.GetRankResult.RankItem}
+     */
+    public static final class RankItem extends
+        com.google.protobuf.GeneratedMessageV3 implements
+        // @@protoc_insertion_point(message_implements:msg.GetRankResult.RankItem)
+        RankItemOrBuilder {
+    private static final long serialVersionUID = 0L;
+      // Use RankItem.newBuilder() to construct.
+      private RankItem(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+        super(builder);
+      }
+      private RankItem() {
+        userName_ = "";
+        heroAvatar_ = "";
+      }
+
+      @java.lang.Override
+      @SuppressWarnings({"unused"})
+      protected java.lang.Object newInstance(
+          UnusedPrivateParameter unused) {
+        return new RankItem();
+      }
+
+      @java.lang.Override
+      public final com.google.protobuf.UnknownFieldSet
+      getUnknownFields() {
+        return this.unknownFields;
+      }
+      private RankItem(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        this();
+        if (extensionRegistry == null) {
+          throw new java.lang.NullPointerException();
+        }
+        com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+            com.google.protobuf.UnknownFieldSet.newBuilder();
+        try {
+          boolean done = false;
+          while (!done) {
+            int tag = input.readTag();
+            switch (tag) {
+              case 0:
+                done = true;
+                break;
+              case 8: {
+
+                rankId_ = input.readUInt32();
+                break;
+              }
+              case 16: {
+
+                userId_ = input.readUInt32();
+                break;
+              }
+              case 26: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                userName_ = s;
+                break;
+              }
+              case 34: {
+                java.lang.String s = input.readStringRequireUtf8();
+
+                heroAvatar_ = s;
+                break;
+              }
+              case 40: {
+
+                win_ = input.readUInt32();
+                break;
+              }
+              default: {
+                if (!parseUnknownField(
+                    input, unknownFields, extensionRegistry, tag)) {
+                  done = true;
+                }
+                break;
+              }
+            }
+          }
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          throw e.setUnfinishedMessage(this);
+        } catch (java.io.IOException e) {
+          throw new com.google.protobuf.InvalidProtocolBufferException(
+              e).setUnfinishedMessage(this);
+        } finally {
+          this.unknownFields = unknownFields.build();
+          makeExtensionsImmutable();
+        }
+      }
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_GetRankResult_RankItem_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_GetRankResult_RankItem_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem.class, org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem.Builder.class);
+      }
+
+      public static final int RANKID_FIELD_NUMBER = 1;
+      private int rankId_;
+      /**
+       * <code>uint32 rankId = 1;</code>
+       * @return The rankId.
+       */
+      @java.lang.Override
+      public int getRankId() {
+        return rankId_;
+      }
+
+      public static final int USERID_FIELD_NUMBER = 2;
+      private int userId_;
+      /**
+       * <code>uint32 userId = 2;</code>
+       * @return The userId.
+       */
+      @java.lang.Override
+      public int getUserId() {
+        return userId_;
+      }
+
+      public static final int USERNAME_FIELD_NUMBER = 3;
+      private volatile java.lang.Object userName_;
+      /**
+       * <code>string userName = 3;</code>
+       * @return The userName.
+       */
+      @java.lang.Override
+      public java.lang.String getUserName() {
+        java.lang.Object ref = userName_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          userName_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string userName = 3;</code>
+       * @return The bytes for userName.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getUserNameBytes() {
+        java.lang.Object ref = userName_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          userName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int HEROAVATAR_FIELD_NUMBER = 4;
+      private volatile java.lang.Object heroAvatar_;
+      /**
+       * <code>string heroAvatar = 4;</code>
+       * @return The heroAvatar.
+       */
+      @java.lang.Override
+      public java.lang.String getHeroAvatar() {
+        java.lang.Object ref = heroAvatar_;
+        if (ref instanceof java.lang.String) {
+          return (java.lang.String) ref;
+        } else {
+          com.google.protobuf.ByteString bs = 
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          heroAvatar_ = s;
+          return s;
+        }
+      }
+      /**
+       * <code>string heroAvatar = 4;</code>
+       * @return The bytes for heroAvatar.
+       */
+      @java.lang.Override
+      public com.google.protobuf.ByteString
+          getHeroAvatarBytes() {
+        java.lang.Object ref = heroAvatar_;
+        if (ref instanceof java.lang.String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          heroAvatar_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+
+      public static final int WIN_FIELD_NUMBER = 5;
+      private int win_;
+      /**
+       * <pre>
+       * 胜利次数
+       * </pre>
+       *
+       * <code>uint32 win = 5;</code>
+       * @return The win.
+       */
+      @java.lang.Override
+      public int getWin() {
+        return win_;
+      }
+
+      private byte memoizedIsInitialized = -1;
+      @java.lang.Override
+      public final boolean isInitialized() {
+        byte isInitialized = memoizedIsInitialized;
+        if (isInitialized == 1) return true;
+        if (isInitialized == 0) return false;
+
+        memoizedIsInitialized = 1;
+        return true;
+      }
+
+      @java.lang.Override
+      public void writeTo(com.google.protobuf.CodedOutputStream output)
+                          throws java.io.IOException {
+        if (rankId_ != 0) {
+          output.writeUInt32(1, rankId_);
+        }
+        if (userId_ != 0) {
+          output.writeUInt32(2, userId_);
+        }
+        if (!getUserNameBytes().isEmpty()) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 3, userName_);
+        }
+        if (!getHeroAvatarBytes().isEmpty()) {
+          com.google.protobuf.GeneratedMessageV3.writeString(output, 4, heroAvatar_);
+        }
+        if (win_ != 0) {
+          output.writeUInt32(5, win_);
+        }
+        unknownFields.writeTo(output);
+      }
+
+      @java.lang.Override
+      public int getSerializedSize() {
+        int size = memoizedSize;
+        if (size != -1) return size;
+
+        size = 0;
+        if (rankId_ != 0) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt32Size(1, rankId_);
+        }
+        if (userId_ != 0) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt32Size(2, userId_);
+        }
+        if (!getUserNameBytes().isEmpty()) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, userName_);
+        }
+        if (!getHeroAvatarBytes().isEmpty()) {
+          size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, heroAvatar_);
+        }
+        if (win_ != 0) {
+          size += com.google.protobuf.CodedOutputStream
+            .computeUInt32Size(5, win_);
+        }
+        size += unknownFields.getSerializedSize();
+        memoizedSize = size;
+        return size;
+      }
+
+      @java.lang.Override
+      public boolean equals(final java.lang.Object obj) {
+        if (obj == this) {
+         return true;
+        }
+        if (!(obj instanceof org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem)) {
+          return super.equals(obj);
+        }
+        org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem other = (org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem) obj;
+
+        if (getRankId()
+            != other.getRankId()) return false;
+        if (getUserId()
+            != other.getUserId()) return false;
+        if (!getUserName()
+            .equals(other.getUserName())) return false;
+        if (!getHeroAvatar()
+            .equals(other.getHeroAvatar())) return false;
+        if (getWin()
+            != other.getWin()) return false;
+        if (!unknownFields.equals(other.unknownFields)) return false;
+        return true;
+      }
+
+      @java.lang.Override
+      public int hashCode() {
+        if (memoizedHashCode != 0) {
+          return memoizedHashCode;
+        }
+        int hash = 41;
+        hash = (19 * hash) + getDescriptor().hashCode();
+        hash = (37 * hash) + RANKID_FIELD_NUMBER;
+        hash = (53 * hash) + getRankId();
+        hash = (37 * hash) + USERID_FIELD_NUMBER;
+        hash = (53 * hash) + getUserId();
+        hash = (37 * hash) + USERNAME_FIELD_NUMBER;
+        hash = (53 * hash) + getUserName().hashCode();
+        hash = (37 * hash) + HEROAVATAR_FIELD_NUMBER;
+        hash = (53 * hash) + getHeroAvatar().hashCode();
+        hash = (37 * hash) + WIN_FIELD_NUMBER;
+        hash = (53 * hash) + getWin();
+        hash = (29 * hash) + unknownFields.hashCode();
+        memoizedHashCode = hash;
+        return hash;
+      }
+
+      public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem parseFrom(
+          java.nio.ByteBuffer data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem parseFrom(
+          java.nio.ByteBuffer data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem parseFrom(
+          com.google.protobuf.ByteString data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem parseFrom(
+          com.google.protobuf.ByteString data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem parseFrom(byte[] data)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data);
+      }
+      public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem parseFrom(
+          byte[] data,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return PARSER.parseFrom(data, extensionRegistry);
+      }
+      public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem parseFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem parseFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem parseDelimitedFrom(java.io.InputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input);
+      }
+      public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem parseDelimitedFrom(
+          java.io.InputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+      }
+      public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem parseFrom(
+          com.google.protobuf.CodedInputStream input)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input);
+      }
+      public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem parseFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        return com.google.protobuf.GeneratedMessageV3
+            .parseWithIOException(PARSER, input, extensionRegistry);
+      }
+
+      @java.lang.Override
+      public Builder newBuilderForType() { return newBuilder(); }
+      public static Builder newBuilder() {
+        return DEFAULT_INSTANCE.toBuilder();
+      }
+      public static Builder newBuilder(org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem prototype) {
+        return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+      }
+      @java.lang.Override
+      public Builder toBuilder() {
+        return this == DEFAULT_INSTANCE
+            ? new Builder() : new Builder().mergeFrom(this);
+      }
+
+      @java.lang.Override
+      protected Builder newBuilderForType(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        Builder builder = new Builder(parent);
+        return builder;
+      }
+      /**
+       * Protobuf type {@code msg.GetRankResult.RankItem}
+       */
+      public static final class Builder extends
+          com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+          // @@protoc_insertion_point(builder_implements:msg.GetRankResult.RankItem)
+          org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItemOrBuilder {
+        public static final com.google.protobuf.Descriptors.Descriptor
+            getDescriptor() {
+          return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_GetRankResult_RankItem_descriptor;
+        }
+
+        @java.lang.Override
+        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            internalGetFieldAccessorTable() {
+          return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_GetRankResult_RankItem_fieldAccessorTable
+              .ensureFieldAccessorsInitialized(
+                  org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem.class, org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem.Builder.class);
+        }
+
+        // Construct using org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem.newBuilder()
+        private Builder() {
+          maybeForceBuilderInitialization();
+        }
+
+        private Builder(
+            com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          super(parent);
+          maybeForceBuilderInitialization();
+        }
+        private void maybeForceBuilderInitialization() {
+          if (com.google.protobuf.GeneratedMessageV3
+                  .alwaysUseFieldBuilders) {
+          }
+        }
+        @java.lang.Override
+        public Builder clear() {
+          super.clear();
+          rankId_ = 0;
+
+          userId_ = 0;
+
+          userName_ = "";
+
+          heroAvatar_ = "";
+
+          win_ = 0;
+
+          return this;
+        }
+
+        @java.lang.Override
+        public com.google.protobuf.Descriptors.Descriptor
+            getDescriptorForType() {
+          return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_GetRankResult_RankItem_descriptor;
+        }
+
+        @java.lang.Override
+        public org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem getDefaultInstanceForType() {
+          return org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem.getDefaultInstance();
+        }
+
+        @java.lang.Override
+        public org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem build() {
+          org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem result = buildPartial();
+          if (!result.isInitialized()) {
+            throw newUninitializedMessageException(result);
+          }
+          return result;
+        }
+
+        @java.lang.Override
+        public org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem buildPartial() {
+          org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem result = new org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem(this);
+          result.rankId_ = rankId_;
+          result.userId_ = userId_;
+          result.userName_ = userName_;
+          result.heroAvatar_ = heroAvatar_;
+          result.win_ = win_;
+          onBuilt();
+          return result;
+        }
+
+        @java.lang.Override
+        public Builder clone() {
+          return super.clone();
+        }
+        @java.lang.Override
+        public Builder setField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.setField(field, value);
+        }
+        @java.lang.Override
+        public Builder clearField(
+            com.google.protobuf.Descriptors.FieldDescriptor field) {
+          return super.clearField(field);
+        }
+        @java.lang.Override
+        public Builder clearOneof(
+            com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+          return super.clearOneof(oneof);
+        }
+        @java.lang.Override
+        public Builder setRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            int index, java.lang.Object value) {
+          return super.setRepeatedField(field, index, value);
+        }
+        @java.lang.Override
+        public Builder addRepeatedField(
+            com.google.protobuf.Descriptors.FieldDescriptor field,
+            java.lang.Object value) {
+          return super.addRepeatedField(field, value);
+        }
+        @java.lang.Override
+        public Builder mergeFrom(com.google.protobuf.Message other) {
+          if (other instanceof org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem) {
+            return mergeFrom((org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem)other);
+          } else {
+            super.mergeFrom(other);
+            return this;
+          }
+        }
+
+        public Builder mergeFrom(org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem other) {
+          if (other == org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem.getDefaultInstance()) return this;
+          if (other.getRankId() != 0) {
+            setRankId(other.getRankId());
+          }
+          if (other.getUserId() != 0) {
+            setUserId(other.getUserId());
+          }
+          if (!other.getUserName().isEmpty()) {
+            userName_ = other.userName_;
+            onChanged();
+          }
+          if (!other.getHeroAvatar().isEmpty()) {
+            heroAvatar_ = other.heroAvatar_;
+            onChanged();
+          }
+          if (other.getWin() != 0) {
+            setWin(other.getWin());
+          }
+          this.mergeUnknownFields(other.unknownFields);
+          onChanged();
+          return this;
+        }
+
+        @java.lang.Override
+        public final boolean isInitialized() {
+          return true;
+        }
+
+        @java.lang.Override
+        public Builder mergeFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws java.io.IOException {
+          org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem parsedMessage = null;
+          try {
+            parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+          } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+            parsedMessage = (org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem) e.getUnfinishedMessage();
+            throw e.unwrapIOException();
+          } finally {
+            if (parsedMessage != null) {
+              mergeFrom(parsedMessage);
+            }
+          }
+          return this;
+        }
+
+        private int rankId_ ;
+        /**
+         * <code>uint32 rankId = 1;</code>
+         * @return The rankId.
+         */
+        @java.lang.Override
+        public int getRankId() {
+          return rankId_;
+        }
+        /**
+         * <code>uint32 rankId = 1;</code>
+         * @param value The rankId to set.
+         * @return This builder for chaining.
+         */
+        public Builder setRankId(int value) {
+          
+          rankId_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>uint32 rankId = 1;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearRankId() {
+          
+          rankId_ = 0;
+          onChanged();
+          return this;
+        }
+
+        private int userId_ ;
+        /**
+         * <code>uint32 userId = 2;</code>
+         * @return The userId.
+         */
+        @java.lang.Override
+        public int getUserId() {
+          return userId_;
+        }
+        /**
+         * <code>uint32 userId = 2;</code>
+         * @param value The userId to set.
+         * @return This builder for chaining.
+         */
+        public Builder setUserId(int value) {
+          
+          userId_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>uint32 userId = 2;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearUserId() {
+          
+          userId_ = 0;
+          onChanged();
+          return this;
+        }
+
+        private java.lang.Object userName_ = "";
+        /**
+         * <code>string userName = 3;</code>
+         * @return The userName.
+         */
+        public java.lang.String getUserName() {
+          java.lang.Object ref = userName_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            userName_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>string userName = 3;</code>
+         * @return The bytes for userName.
+         */
+        public com.google.protobuf.ByteString
+            getUserNameBytes() {
+          java.lang.Object ref = userName_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            userName_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string userName = 3;</code>
+         * @param value The userName to set.
+         * @return This builder for chaining.
+         */
+        public Builder setUserName(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          userName_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string userName = 3;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearUserName() {
+          
+          userName_ = getDefaultInstance().getUserName();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string userName = 3;</code>
+         * @param value The bytes for userName to set.
+         * @return This builder for chaining.
+         */
+        public Builder setUserNameBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          userName_ = value;
+          onChanged();
+          return this;
+        }
+
+        private java.lang.Object heroAvatar_ = "";
+        /**
+         * <code>string heroAvatar = 4;</code>
+         * @return The heroAvatar.
+         */
+        public java.lang.String getHeroAvatar() {
+          java.lang.Object ref = heroAvatar_;
+          if (!(ref instanceof java.lang.String)) {
+            com.google.protobuf.ByteString bs =
+                (com.google.protobuf.ByteString) ref;
+            java.lang.String s = bs.toStringUtf8();
+            heroAvatar_ = s;
+            return s;
+          } else {
+            return (java.lang.String) ref;
+          }
+        }
+        /**
+         * <code>string heroAvatar = 4;</code>
+         * @return The bytes for heroAvatar.
+         */
+        public com.google.protobuf.ByteString
+            getHeroAvatarBytes() {
+          java.lang.Object ref = heroAvatar_;
+          if (ref instanceof String) {
+            com.google.protobuf.ByteString b = 
+                com.google.protobuf.ByteString.copyFromUtf8(
+                    (java.lang.String) ref);
+            heroAvatar_ = b;
+            return b;
+          } else {
+            return (com.google.protobuf.ByteString) ref;
+          }
+        }
+        /**
+         * <code>string heroAvatar = 4;</code>
+         * @param value The heroAvatar to set.
+         * @return This builder for chaining.
+         */
+        public Builder setHeroAvatar(
+            java.lang.String value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  
+          heroAvatar_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string heroAvatar = 4;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearHeroAvatar() {
+          
+          heroAvatar_ = getDefaultInstance().getHeroAvatar();
+          onChanged();
+          return this;
+        }
+        /**
+         * <code>string heroAvatar = 4;</code>
+         * @param value The bytes for heroAvatar to set.
+         * @return This builder for chaining.
+         */
+        public Builder setHeroAvatarBytes(
+            com.google.protobuf.ByteString value) {
+          if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+          
+          heroAvatar_ = value;
+          onChanged();
+          return this;
+        }
+
+        private int win_ ;
+        /**
+         * <pre>
+         * 胜利次数
+         * </pre>
+         *
+         * <code>uint32 win = 5;</code>
+         * @return The win.
+         */
+        @java.lang.Override
+        public int getWin() {
+          return win_;
+        }
+        /**
+         * <pre>
+         * 胜利次数
+         * </pre>
+         *
+         * <code>uint32 win = 5;</code>
+         * @param value The win to set.
+         * @return This builder for chaining.
+         */
+        public Builder setWin(int value) {
+          
+          win_ = value;
+          onChanged();
+          return this;
+        }
+        /**
+         * <pre>
+         * 胜利次数
+         * </pre>
+         *
+         * <code>uint32 win = 5;</code>
+         * @return This builder for chaining.
+         */
+        public Builder clearWin() {
+          
+          win_ = 0;
+          onChanged();
+          return this;
+        }
+        @java.lang.Override
+        public final Builder setUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.setUnknownFields(unknownFields);
+        }
+
+        @java.lang.Override
+        public final Builder mergeUnknownFields(
+            final com.google.protobuf.UnknownFieldSet unknownFields) {
+          return super.mergeUnknownFields(unknownFields);
+        }
+
+
+        // @@protoc_insertion_point(builder_scope:msg.GetRankResult.RankItem)
+      }
+
+      // @@protoc_insertion_point(class_scope:msg.GetRankResult.RankItem)
+      private static final org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem DEFAULT_INSTANCE;
+      static {
+        DEFAULT_INSTANCE = new org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem();
+      }
+
+      public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem getDefaultInstance() {
+        return DEFAULT_INSTANCE;
+      }
+
+      private static final com.google.protobuf.Parser<RankItem>
+          PARSER = new com.google.protobuf.AbstractParser<RankItem>() {
+        @java.lang.Override
+        public RankItem parsePartialFrom(
+            com.google.protobuf.CodedInputStream input,
+            com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+            throws com.google.protobuf.InvalidProtocolBufferException {
+          return new RankItem(input, extensionRegistry);
+        }
+      };
+
+      public static com.google.protobuf.Parser<RankItem> parser() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Parser<RankItem> getParserForType() {
+        return PARSER;
+      }
+
+      @java.lang.Override
+      public org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem getDefaultInstanceForType() {
+        return DEFAULT_INSTANCE;
+      }
+
+    }
+
+    public static final int RANKITEMS_FIELD_NUMBER = 1;
+    private java.util.List<org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem> rankItems_;
+    /**
+     * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem> getRankItemsList() {
+      return rankItems_;
+    }
+    /**
+     * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+     */
+    @java.lang.Override
+    public java.util.List<? extends org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItemOrBuilder> 
+        getRankItemsOrBuilderList() {
+      return rankItems_;
+    }
+    /**
+     * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+     */
+    @java.lang.Override
+    public int getRankItemsCount() {
+      return rankItems_.size();
+    }
+    /**
+     * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+     */
+    @java.lang.Override
+    public org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem getRankItems(int index) {
+      return rankItems_.get(index);
+    }
+    /**
+     * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+     */
+    @java.lang.Override
+    public org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItemOrBuilder getRankItemsOrBuilder(
+        int index) {
+      return rankItems_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < rankItems_.size(); i++) {
+        output.writeMessage(1, rankItems_.get(i));
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < rankItems_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, rankItems_.get(i));
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof org.tinygame.herostory.api.GameMsgProtocol.GetRankResult)) {
+        return super.equals(obj);
+      }
+      org.tinygame.herostory.api.GameMsgProtocol.GetRankResult other = (org.tinygame.herostory.api.GameMsgProtocol.GetRankResult) obj;
+
+      if (!getRankItemsList()
+          .equals(other.getRankItemsList())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      if (getRankItemsCount() > 0) {
+        hash = (37 * hash) + RANKITEMS_FIELD_NUMBER;
+        hash = (53 * hash) + getRankItemsList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(org.tinygame.herostory.api.GameMsgProtocol.GetRankResult prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * <pre>
+     * 获取排行榜结果
+     * </pre>
+     *
+     * Protobuf type {@code msg.GetRankResult}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:msg.GetRankResult)
+        org.tinygame.herostory.api.GameMsgProtocol.GetRankResultOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_GetRankResult_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_GetRankResult_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.class, org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.Builder.class);
+      }
+
+      // Construct using org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getRankItemsFieldBuilder();
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        if (rankItemsBuilder_ == null) {
+          rankItems_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          rankItemsBuilder_.clear();
+        }
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return org.tinygame.herostory.api.GameMsgProtocol.internal_static_msg_GetRankResult_descriptor;
+      }
+
+      @java.lang.Override
+      public org.tinygame.herostory.api.GameMsgProtocol.GetRankResult getDefaultInstanceForType() {
+        return org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public org.tinygame.herostory.api.GameMsgProtocol.GetRankResult build() {
+        org.tinygame.herostory.api.GameMsgProtocol.GetRankResult result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public org.tinygame.herostory.api.GameMsgProtocol.GetRankResult buildPartial() {
+        org.tinygame.herostory.api.GameMsgProtocol.GetRankResult result = new org.tinygame.herostory.api.GameMsgProtocol.GetRankResult(this);
+        int from_bitField0_ = bitField0_;
+        if (rankItemsBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            rankItems_ = java.util.Collections.unmodifiableList(rankItems_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.rankItems_ = rankItems_;
+        } else {
+          result.rankItems_ = rankItemsBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof org.tinygame.herostory.api.GameMsgProtocol.GetRankResult) {
+          return mergeFrom((org.tinygame.herostory.api.GameMsgProtocol.GetRankResult)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(org.tinygame.herostory.api.GameMsgProtocol.GetRankResult other) {
+        if (other == org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.getDefaultInstance()) return this;
+        if (rankItemsBuilder_ == null) {
+          if (!other.rankItems_.isEmpty()) {
+            if (rankItems_.isEmpty()) {
+              rankItems_ = other.rankItems_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureRankItemsIsMutable();
+              rankItems_.addAll(other.rankItems_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.rankItems_.isEmpty()) {
+            if (rankItemsBuilder_.isEmpty()) {
+              rankItemsBuilder_.dispose();
+              rankItemsBuilder_ = null;
+              rankItems_ = other.rankItems_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              rankItemsBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getRankItemsFieldBuilder() : null;
+            } else {
+              rankItemsBuilder_.addAllMessages(other.rankItems_);
+            }
+          }
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        org.tinygame.herostory.api.GameMsgProtocol.GetRankResult parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (org.tinygame.herostory.api.GameMsgProtocol.GetRankResult) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem> rankItems_ =
+        java.util.Collections.emptyList();
+      private void ensureRankItemsIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          rankItems_ = new java.util.ArrayList<org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem>(rankItems_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem, org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem.Builder, org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItemOrBuilder> rankItemsBuilder_;
+
+      /**
+       * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+       */
+      public java.util.List<org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem> getRankItemsList() {
+        if (rankItemsBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(rankItems_);
+        } else {
+          return rankItemsBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+       */
+      public int getRankItemsCount() {
+        if (rankItemsBuilder_ == null) {
+          return rankItems_.size();
+        } else {
+          return rankItemsBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+       */
+      public org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem getRankItems(int index) {
+        if (rankItemsBuilder_ == null) {
+          return rankItems_.get(index);
+        } else {
+          return rankItemsBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+       */
+      public Builder setRankItems(
+          int index, org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem value) {
+        if (rankItemsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRankItemsIsMutable();
+          rankItems_.set(index, value);
+          onChanged();
+        } else {
+          rankItemsBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+       */
+      public Builder setRankItems(
+          int index, org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem.Builder builderForValue) {
+        if (rankItemsBuilder_ == null) {
+          ensureRankItemsIsMutable();
+          rankItems_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          rankItemsBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+       */
+      public Builder addRankItems(org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem value) {
+        if (rankItemsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRankItemsIsMutable();
+          rankItems_.add(value);
+          onChanged();
+        } else {
+          rankItemsBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+       */
+      public Builder addRankItems(
+          int index, org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem value) {
+        if (rankItemsBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureRankItemsIsMutable();
+          rankItems_.add(index, value);
+          onChanged();
+        } else {
+          rankItemsBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+       */
+      public Builder addRankItems(
+          org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem.Builder builderForValue) {
+        if (rankItemsBuilder_ == null) {
+          ensureRankItemsIsMutable();
+          rankItems_.add(builderForValue.build());
+          onChanged();
+        } else {
+          rankItemsBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+       */
+      public Builder addRankItems(
+          int index, org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem.Builder builderForValue) {
+        if (rankItemsBuilder_ == null) {
+          ensureRankItemsIsMutable();
+          rankItems_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          rankItemsBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+       */
+      public Builder addAllRankItems(
+          java.lang.Iterable<? extends org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem> values) {
+        if (rankItemsBuilder_ == null) {
+          ensureRankItemsIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, rankItems_);
+          onChanged();
+        } else {
+          rankItemsBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+       */
+      public Builder clearRankItems() {
+        if (rankItemsBuilder_ == null) {
+          rankItems_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          rankItemsBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+       */
+      public Builder removeRankItems(int index) {
+        if (rankItemsBuilder_ == null) {
+          ensureRankItemsIsMutable();
+          rankItems_.remove(index);
+          onChanged();
+        } else {
+          rankItemsBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+       */
+      public org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem.Builder getRankItemsBuilder(
+          int index) {
+        return getRankItemsFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+       */
+      public org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItemOrBuilder getRankItemsOrBuilder(
+          int index) {
+        if (rankItemsBuilder_ == null) {
+          return rankItems_.get(index);  } else {
+          return rankItemsBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+       */
+      public java.util.List<? extends org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItemOrBuilder> 
+           getRankItemsOrBuilderList() {
+        if (rankItemsBuilder_ != null) {
+          return rankItemsBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(rankItems_);
+        }
+      }
+      /**
+       * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+       */
+      public org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem.Builder addRankItemsBuilder() {
+        return getRankItemsFieldBuilder().addBuilder(
+            org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+       */
+      public org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem.Builder addRankItemsBuilder(
+          int index) {
+        return getRankItemsFieldBuilder().addBuilder(
+            index, org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .msg.GetRankResult.RankItem rankItems = 1;</code>
+       */
+      public java.util.List<org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem.Builder> 
+           getRankItemsBuilderList() {
+        return getRankItemsFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem, org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem.Builder, org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItemOrBuilder> 
+          getRankItemsFieldBuilder() {
+        if (rankItemsBuilder_ == null) {
+          rankItemsBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem, org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItem.Builder, org.tinygame.herostory.api.GameMsgProtocol.GetRankResult.RankItemOrBuilder>(
+                  rankItems_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          rankItems_ = null;
+        }
+        return rankItemsBuilder_;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:msg.GetRankResult)
+    }
+
+    // @@protoc_insertion_point(class_scope:msg.GetRankResult)
+    private static final org.tinygame.herostory.api.GameMsgProtocol.GetRankResult DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new org.tinygame.herostory.api.GameMsgProtocol.GetRankResult();
+    }
+
+    public static org.tinygame.herostory.api.GameMsgProtocol.GetRankResult getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<GetRankResult>
+        PARSER = new com.google.protobuf.AbstractParser<GetRankResult>() {
+      @java.lang.Override
+      public GetRankResult parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new GetRankResult(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<GetRankResult> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<GetRankResult> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public org.tinygame.herostory.api.GameMsgProtocol.GetRankResult getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_msg_UserEntryCmd_descriptor;
   private static final 
@@ -11765,6 +15128,31 @@ public final class GameMsgProtocol {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_msg_UserLoginResult_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_msg_SelectHeroCmd_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_msg_SelectHeroCmd_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_msg_SelectHeroResult_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_msg_SelectHeroResult_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_msg_GetRankCmd_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_msg_GetRankCmd_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_msg_GetRankResult_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_msg_GetRankResult_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_msg_GetRankResult_RankItem_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_msg_GetRankResult_RankItem_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -11801,17 +15189,26 @@ public final class GameMsgProtocol {
       "DieResult\022\024\n\014targetUserId\030\001 \001(\r\"2\n\014UserL" +
       "oginCmd\022\020\n\010userName\030\001 \001(\t\022\020\n\010password\030\002 " +
       "\001(\t\"G\n\017UserLoginResult\022\016\n\006userId\030\001 \001(\r\022\020" +
-      "\n\010userName\030\002 \001(\t\022\022\n\nheroAvatar\030\003 \001(\t*\337\002\n" +
-      "\007MsgCode\022\022\n\016USER_ENTRY_CMD\020\000\022\025\n\021USER_ENT" +
-      "RY_RESULT\020\001\022\030\n\024WHO_ELSE_IS_HERE_CMD\020\002\022\033\n" +
-      "\027WHO_ELSE_IS_HERE_RESULT\020\003\022\024\n\020USER_MOVE_" +
-      "TO_CMD\020\004\022\027\n\023USER_MOVE_TO_RESULT\020\005\022\024\n\020USE" +
-      "R_QUIT_RESULT\020\006\022\021\n\rUSER_STOP_CMD\020\007\022\024\n\020US" +
-      "ER_STOP_RESULT\020\010\022\021\n\rUSER_ATTK_CMD\020\t\022\024\n\020U" +
-      "SER_ATTK_RESULT\020\n\022\033\n\027USER_SUBTRACT_HP_RE" +
-      "SULT\020\013\022\023\n\017USER_DIE_RESULT\020\014\022\022\n\016USER_LOGI" +
-      "N_CMD\020\r\022\025\n\021USER_LOGIN_RESULT\020\016B\034\n\032org.ti" +
-      "nygame.herostory.apib\006proto3"
+      "\n\010userName\030\002 \001(\t\022\022\n\nheroAvatar\030\003 \001(\t\"#\n\r" +
+      "SelectHeroCmd\022\022\n\nheroAvatar\030\001 \001(\t\"&\n\020Sel" +
+      "ectHeroResult\022\022\n\nheroAvatar\030\001 \001(\t\"\014\n\nGet" +
+      "RankCmd\"\236\001\n\rGetRankResult\022.\n\trankItems\030\001" +
+      " \003(\0132\033.msg.GetRankResult.RankItem\032]\n\010Ran" +
+      "kItem\022\016\n\006rankId\030\001 \001(\r\022\016\n\006userId\030\002 \001(\r\022\020\n" +
+      "\010userName\030\003 \001(\t\022\022\n\nheroAvatar\030\004 \001(\t\022\013\n\003w" +
+      "in\030\005 \001(\r*\263\003\n\007MsgCode\022\022\n\016USER_ENTRY_CMD\020\000" +
+      "\022\025\n\021USER_ENTRY_RESULT\020\001\022\030\n\024WHO_ELSE_IS_H" +
+      "ERE_CMD\020\002\022\033\n\027WHO_ELSE_IS_HERE_RESULT\020\003\022\024" +
+      "\n\020USER_MOVE_TO_CMD\020\004\022\027\n\023USER_MOVE_TO_RES" +
+      "ULT\020\005\022\024\n\020USER_QUIT_RESULT\020\006\022\021\n\rUSER_STOP" +
+      "_CMD\020\007\022\024\n\020USER_STOP_RESULT\020\010\022\021\n\rUSER_ATT" +
+      "K_CMD\020\t\022\024\n\020USER_ATTK_RESULT\020\n\022\033\n\027USER_SU" +
+      "BTRACT_HP_RESULT\020\013\022\023\n\017USER_DIE_RESULT\020\014\022" +
+      "\022\n\016USER_LOGIN_CMD\020\r\022\025\n\021USER_LOGIN_RESULT" +
+      "\020\016\022\023\n\017SELECT_HERO_CMD\020\017\022\026\n\022SELECT_HERO_R" +
+      "ESULT\020\020\022\020\n\014GET_RANK_CMD\020\021\022\023\n\017GET_RANK_RE" +
+      "SULT\020\022B\034\n\032org.tinygame.herostory.apib\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -11919,6 +15316,36 @@ public final class GameMsgProtocol {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_msg_UserLoginResult_descriptor,
         new java.lang.String[] { "UserId", "UserName", "HeroAvatar", });
+    internal_static_msg_SelectHeroCmd_descriptor =
+      getDescriptor().getMessageTypes().get(15);
+    internal_static_msg_SelectHeroCmd_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_msg_SelectHeroCmd_descriptor,
+        new java.lang.String[] { "HeroAvatar", });
+    internal_static_msg_SelectHeroResult_descriptor =
+      getDescriptor().getMessageTypes().get(16);
+    internal_static_msg_SelectHeroResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_msg_SelectHeroResult_descriptor,
+        new java.lang.String[] { "HeroAvatar", });
+    internal_static_msg_GetRankCmd_descriptor =
+      getDescriptor().getMessageTypes().get(17);
+    internal_static_msg_GetRankCmd_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_msg_GetRankCmd_descriptor,
+        new java.lang.String[] { });
+    internal_static_msg_GetRankResult_descriptor =
+      getDescriptor().getMessageTypes().get(18);
+    internal_static_msg_GetRankResult_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_msg_GetRankResult_descriptor,
+        new java.lang.String[] { "RankItems", });
+    internal_static_msg_GetRankResult_RankItem_descriptor =
+      internal_static_msg_GetRankResult_descriptor.getNestedTypes().get(0);
+    internal_static_msg_GetRankResult_RankItem_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_msg_GetRankResult_RankItem_descriptor,
+        new java.lang.String[] { "RankId", "UserId", "UserName", "HeroAvatar", "Win", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

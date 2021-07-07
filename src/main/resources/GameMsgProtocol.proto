@@ -20,6 +20,10 @@ enum MsgCode {
     USER_DIE_RESULT = 12;
     USER_LOGIN_CMD = 13;
     USER_LOGIN_RESULT = 14;
+    SELECT_HERO_CMD = 15;
+    SELECT_HERO_RESULT = 16;
+    GET_RANK_CMD = 17;
+    GET_RANK_RESULT = 18;
 };
 
 // 
@@ -177,4 +181,32 @@ message UserLoginResult {
     uint32 userId = 1;
     string userName = 2;
     string heroAvatar = 3;
+}
+
+// 选择英雄命令
+message SelectHeroCmd{
+    string heroAvatar = 1;
+}
+
+// 选择英雄结果
+message SelectHeroResult{
+    string heroAvatar = 1;
+}
+
+// 获取排行榜命令
+message GetRankCmd{
+}
+
+// 获取排行榜结果
+message GetRankResult{
+    repeated RankItem rankItems = 1;
+
+    message RankItem{
+        uint32 rankId = 1;
+        uint32 userId = 2;
+        string userName = 3;
+        string heroAvatar = 4;
+        // 胜利次数
+        uint32 win = 5;
+    }
 }

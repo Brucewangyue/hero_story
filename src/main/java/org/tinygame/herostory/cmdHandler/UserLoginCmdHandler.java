@@ -35,6 +35,7 @@ public class UserLoginCmdHandler implements CmdHandler<GameMsgProtocol.UserLogin
             User user = new User();
             user.setUserId(account.getId());
             user.setHeroAvatar(account.getHeroAvatar());
+            user.setHP(100);
             UserManager.add(user);
             ctx.channel().attr(AttributeKey.valueOf("userId")).set(account.getId());
 
